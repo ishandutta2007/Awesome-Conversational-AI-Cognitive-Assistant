@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c16" />
+      <stop offset="45%" stop-color="#101528" />
+      <stop offset="100%" stop-color="#070913" />
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="accentPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38bdf8" stroke-width="0.75" stroke-opacity="0.08" />
+      <circle cx="40" cy="40" r="1.5" fill="#818cf8" fill-opacity="0.2" />
+    </pattern>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseOrb {
+      0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.35; }
+      50% { transform: scale(1.15) translate(20px, -10px); opacity: 0.6; }
+    }
+    @keyframes flowLine {
+      0% { stroke-dashoffset: 400; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes floatParticle {
+      0% { transform: translateY(0px); opacity: 0.2; }
+      50% { transform: translateY(-18px); opacity: 0.7; }
+      100% { transform: translateY(0px); opacity: 0.2; }
+    }
+    @keyframes beaconRing {
+      0% { r: 6px; opacity: 0.9; stroke-width: 2px; }
+      100% { r: 32px; opacity: 0; stroke-width: 0.5px; }
+    }
+
+    .bg-orb-1 { animation: pulseOrb 8s ease-in-out infinite alternate; transform-origin: 200px 100px; }
+    .bg-orb-2 { animation: pulseOrb 10s ease-in-out infinite alternate-reverse; transform-origin: 1000px 300px; }
+    .stream-line { stroke-dasharray: 20 10; animation: flowLine 14s linear infinite; }
+    .stream-line-rev { stroke-dasharray: 15 8; animation: flowLine 18s linear infinite reverse; }
+    .particle-1 { animation: floatParticle 5s ease-in-out infinite; }
+    .particle-2 { animation: floatParticle 7s ease-in-out infinite 1s; }
+    .particle-3 { animation: floatParticle 6s ease-in-out infinite 2s; }
+    .beacon { animation: beaconRing 3s cubic-bezier(0.2, 0.8, 0.2, 1) infinite; }
+  </style>
+
+  <!-- Base Canvas Background -->
+  <rect width="1200" height="420" rx="16" fill="url(#bgGrad)" />
+  <rect width="1200" height="420" rx="16" fill="url(#gridPattern)" />
+
+  <!-- Animated Glowing Orbs (in Background) -->
+  <circle class="bg-orb-1" cx="200" cy="120" r="140" fill="url(#accentCyan)" filter="url(#softGlow)" />
+  <circle class="bg-orb-2" cx="1020" cy="300" r="160" fill="url(#accentPurple)" filter="url(#softGlow)" />
+  <circle cx="600" cy="210" r="90" fill="#6366f1" opacity="0.08" filter="url(#softGlow)" />
+
+  <!-- Dynamic Neural Connection Circuit Streams (in Background) -->
+  <g opacity="0.45">
+    <path class="stream-line" d="M 60 360 C 240 280, 360 400, 560 320 S 840 260, 1140 340" fill="none" stroke="#38bdf8" stroke-width="2" />
+    <path class="stream-line-rev" d="M 80 80 C 300 160, 420 60, 680 120 S 960 40, 1120 100" fill="none" stroke="#c084fc" stroke-width="1.75" />
+    <path class="stream-line" d="M 120 220 C 380 200, 520 260, 760 180 S 980 220, 1100 160" fill="none" stroke="#818cf8" stroke-width="1.5" />
+  </g>
+
+  <!-- Ambient Node Lights / Beacons -->
+  <circle class="beacon" cx="240" cy="280" stroke="#38bdf8" fill="none" />
+  <circle cx="240" cy="280" r="5" fill="#38bdf8" filter="url(#glow)" />
+
+  <circle class="beacon" cx="960" cy="140" stroke="#c084fc" fill="none" />
+  <circle cx="960" cy="140" r="5" fill="#c084fc" filter="url(#glow)" />
+
+  <circle class="beacon" cx="680" cy="340" stroke="#818cf8" fill="none" />
+  <circle cx="680" cy="340" r="4.5" fill="#818cf8" filter="url(#glow)" />
+
+  <!-- Floating Ambient Particles -->
+  <circle class="particle-1" cx="340" cy="130" r="3" fill="#38bdf8" />
+  <circle class="particle-2" cx="840" cy="90" r="2.5" fill="#e0e7ff" />
+  <circle class="particle-3" cx="500" cy="360" r="3.5" fill="#c084fc" />
+  <circle class="particle-1" cx="760" cy="270" r="2" fill="#38bdf8" />
+  <circle class="particle-2" cx="150" cy="200" r="2.5" fill="#a855f7" />
+
+  <!-- FOREGROUND: Content Card & Distinct Title Hierarchy -->
+  <!-- Top Category Pill -->
+  <g transform="translate(600, 65)">
+    <rect x="-195" y="-18" width="390" height="36" rx="18" fill="#1e293b" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="1.2" />
+    <circle cx="-165" cy="0" r="4.5" fill="#38bdf8" filter="url(#glow)" />
+    <text x="-148" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#93c5fd" letter-spacing="1.5">ENTERPRISE ECOSYSTEM &amp; FRAMEWORKS</text>
+  </g>
+
+  <!-- Primary Foreground Title -->
+  <text x="600" y="150" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="46" font-weight="900" fill="url(#primaryGrad)" filter="url(#glow)" letter-spacing="-0.5">
+    Awesome Conversational AI
+  </text>
+  <text x="600" y="198" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#f8fafc" letter-spacing="-0.2">
+    &amp; Cognitive Assistants
+  </text>
+
+  <!-- Subtitle / Tagline -->
+  <text x="600" y="248" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="400" fill="#94a3b8">
+    Curated Enterprise Copilots, Autonomous Agents, Multi-Channel Bots &amp; Open-Source RAG Engines
+  </text>
+
+  <!-- Feature Highlights Pills (Foreground) -->
+  <g transform="translate(600, 310)">
+    <!-- Pill 1: Enterprise SaaS -->
+    <g transform="translate(-360, 0)">
+      <rect x="-95" y="-18" width="190" height="36" rx="10" fill="#131b2e" stroke="#38bdf8" stroke-opacity="0.3" stroke-width="1" />
+      <text x="0" y="5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">🏢 Enterprise SaaS</text>
+    </g>
+    <!-- Pill 2: Open-Source RAG -->
+    <g transform="translate(-120, 0)">
+      <rect x="-105" y="-18" width="210" height="36" rx="10" fill="#131b2e" stroke="#818cf8" stroke-opacity="0.3" stroke-width="1" />
+      <text x="0" y="5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">⚡ Open-Source RAG</text>
+    </g>
+    <!-- Pill 3: Autonomous Agents -->
+    <g transform="translate(125, 0)">
+      <rect x="-105" y="-18" width="210" height="36" rx="10" fill="#131b2e" stroke="#a855f7" stroke-opacity="0.3" stroke-width="1" />
+      <text x="0" y="5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">🤖 Cognitive Agents</text>
+    </g>
+    <!-- Pill 4: Voice & Omnichannel -->
+    <g transform="translate(365, 0)">
+      <rect x="-95" y="-18" width="190" height="36" rx="10" fill="#131b2e" stroke="#ec4899" stroke-opacity="0.3" stroke-width="1" />
+      <text x="0" y="5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">🎙️ Voice &amp; Multimodal</text>
+    </g>
+  </g>
+
+  <!-- Bottom Accent Border -->
+  <rect x="0" y="416" width="1200" height="4" fill="url(#primaryGrad)" />
+</svg>
