@@ -66,7 +66,7 @@ The ecosystem is characterized by a **two-tier market structure**:
 
 Explore the top community-driven, self-hosted, and transparent conversational AI ecosystems. Projects are ranked by GitHub star popularity (descending):
 
-| Project | GitHub Stars | Description | Primary Tech Stack |
+| Project | GitHub_Stars | Description | Primary Tech Stack |
 |---------|--------------|-------------|--------------------|
 | **[Dify](https://github.com/langgenius/dify)** | [![Stars](https://img.shields.io/github/stars/langgenius/dify?style=social&color=white)](https://github.com/langgenius/dify/stargazers) | 🚀 Production-ready LLM application development platform fusing conversational AI, visual prompt engineering, multi-agent orchestration, and native RAG workflows. | Python, TypeScript, React |
 | **[Open WebUI](https://github.com/open-webui/open-webui)** | [![Stars](https://img.shields.io/github/stars/open-webui/open-webui?style=social&color=white)](https://github.com/open-webui/open-webui/stargazers) | 💻 Feature-rich, user-friendly, and self-hosted AI interface for Ollama, OpenAI-compatible APIs, and local LLMs with built-in RAG, role-based access, and voice support. | Python, Svelte, TailwindCSS |
@@ -95,7 +95,7 @@ Contributions are welcome! Help keep this ecosystem comprehensive, accurate, and
 
 1. 🍴 **Fork the repository**.
 2. 🌿 **Create a new branch** (`git checkout -b feature/add-new-assistant`).
-3. 📝 **Add or update entries** in `README.md` adhering to the existing markdown table format (ensure pricing, trial limits, and official GitHub star badges are properly linked).
+3. 📝 **Add or update entries** in `README.md` adhering to the existing markdown table format (ensure pricing, trial limits, and official GitHub Stars_Badges are properly linked).
 4. 🚀 **Submit a Pull Request** with a concise description of the tool and its utility to the community.
 
 ---
